@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 
 import com.example.exercicio1conversordetemperatura.Model.CelciusStrategy;
+import com.example.exercicio1conversordetemperatura.Model.FahrenheitStrategy;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,11 +25,16 @@ public class MainActivity extends AppCompatActivity {
         valorASerConvertido = findViewById(R.id.textValue);
         botaoCelcius = findViewById(R.id.buttonConverteCelcius);
         botaoCelcius.setOnClickListener(view -> ConverteCelcius());
-
+        botaoFahrenheit = findViewById(R.id.buttonConverteFahrenheit);
+        botaoFahrenheit.setOnClickListener(view -> ConverteFahrenheit());
     }
 
     public void  ConverteCelcius() {
         Double valor = CelciusStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()));
+        textValorConvertidoCelcius.setText(valor.toString());
+    }
+    public void ConverteFahrenheit() {
+        Double valor = FahrenheitStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()));
         textValorConvertidoCelcius.setText(valor.toString());
     }
 
