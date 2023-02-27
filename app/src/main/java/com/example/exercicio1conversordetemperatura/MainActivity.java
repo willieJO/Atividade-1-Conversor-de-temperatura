@@ -6,35 +6,30 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+
+import com.example.exercicio1conversordetemperatura.Model.CelciusStrategy;
 
 
 public class MainActivity extends AppCompatActivity {
     private EditText valorASerConvertido;
     private Button botaoCelcius;
     private TextView textValorConvertidoCelcius;
-    public static final String FORMAT_HOUR = "##:##";
+    private Button botaoFahrenheit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        botaoCelcius = findViewById(R.id.buttonConverteCelcius);
         textValorConvertidoCelcius = findViewById(R.id.textValorConvertido);
         valorASerConvertido = findViewById(R.id.textValue);
+        botaoCelcius = findViewById(R.id.buttonConverteCelcius);
         botaoCelcius.setOnClickListener(view -> ConverteCelcius());
 
     }
 
     public void  ConverteCelcius() {
-        Double temperaturaSelecionada = Double.parseDouble(valorASerConvertido.getText().toString());
-        textValorConvertidoCelcius.setText(AplicarFormula(temperaturaSelecionada).toString());
+        Double valor = CelciusStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()));
+        textValorConvertidoCelcius.setText(valor.toString());
     }
-    public Double AplicarFormula(Double valor){
-        try{
-            return ((valor -32) * 5/9);
-        } catch (NumberFormatException e) {
-            Toast.makeText(this, "Valor digitado é inválido.", Toast.LENGTH_SHORT).show();
-            return 0.0;
-        }
-    }
+
 }
