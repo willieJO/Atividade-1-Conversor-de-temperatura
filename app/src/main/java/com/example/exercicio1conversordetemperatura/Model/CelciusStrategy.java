@@ -12,7 +12,7 @@ public class CelciusStrategy implements   ConversorTemperatura {
     }
 
     @Override
-    public double getConversion(Double temperatura) {
+    public double getConversion(Double temperatura, boolean isCelciusKelvin) {
         return ((temperatura -32) * 5/9);
     }
 }

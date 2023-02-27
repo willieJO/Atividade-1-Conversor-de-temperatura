@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private Button botaoCelcius;
     private TextView textValorConvertidoCelcius;
     private Button botaoFahrenheit;
+    private Button buttonCelciusKelvin;
+    private Button buttonFahrenheitKelvin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +29,20 @@ public class MainActivity extends AppCompatActivity {
         botaoCelcius.setOnClickListener(view -> ConverteCelcius());
         botaoFahrenheit = findViewById(R.id.buttonConverteFahrenheit);
         botaoFahrenheit.setOnClickListener(view -> ConverteFahrenheit());
+        buttonCelciusKelvin = findViewById(R.id.buttonConvertCelciusKelvin);
+        buttonCelciusKelvin.setOnClickListener();
     }
 
     public void  ConverteCelcius() {
-        Double valor = CelciusStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()));
+        Double valor = CelciusStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()),false);
         textValorConvertidoCelcius.setText(valor.toString());
     }
     public void ConverteFahrenheit() {
-        Double valor = FahrenheitStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()));
+        Double valor = FahrenheitStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()),false);
+        textValorConvertidoCelcius.setText(valor.toString());
+    }
+    public void ConverteCelciusKelvin() {
+        Double valor = 0.00;
         textValorConvertidoCelcius.setText(valor.toString());
     }
 
