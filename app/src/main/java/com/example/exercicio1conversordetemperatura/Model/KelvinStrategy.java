@@ -14,7 +14,10 @@ public class KelvinStrategy implements ConversorTemperatura{
     }
 
     @Override
-    public double getConversion(Double temperatura, boolean isCelciusKelvin) {
+    public double getConversion(Double temperatura) {
+         return 0.0;
+    }
+    public double getConversion(Double temperatura,boolean isCelciusKelvin) {
         if (isCelciusKelvin) {
             return (temperatura + 273.15);
         }

@@ -15,7 +15,7 @@ public class FahrenheitStrategy implements  ConversorTemperatura{
 
 
     @Override
-    public double getConversion(Double temperatura, boolean isCelciusKelvin) {
+    public double getConversion(Double temperatura) {
         return ((temperatura * 9/5) + 32);
     }
 }
