@@ -44,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void  ConverteCelcius() {
         Double valor = CelciusStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()));
-        textValorConvertidoCelcius.setText(valor.toString());
+        textValorConvertidoCelcius.setText(String.format("%.2f °C", valor));
     }
     public void ConverteFahrenheit() {
         Double valor = FahrenheitStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()));
-        textValorConvertidoCelcius.setText(valor.toString());
+        textValorConvertidoCelcius.setText(String.format("%.2f °F", valor));
     }
     public void ConverteKelvin(boolean isCelcius) {
         Double valor = KelvinStrategy.getInstance().getConversion(Double.parseDouble(valorASerConvertido.getText().toString()),isCelcius);
-        textValorConvertidoCelcius.setText(valor.toString());
+        textValorConvertidoCelcius.setText(String.format("%.2f K", valor));
     }
 
 }
