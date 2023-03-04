@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Exercicio 1 Conversor de temperatura</string>
+    <string name="celcius_Kelvin">Celsius para Kelvin</string>
+    <string name="fahrenheit_Kelvin">Fahrenheit para Kelvin</string>
+    <string name="converter">Converter temperatura</string>
+    <string name="fahrenheit">Celcius para Fahrenheit</string>
+    <string name="Celcius">Fahrenheit para Celcius</string>
 </resources>

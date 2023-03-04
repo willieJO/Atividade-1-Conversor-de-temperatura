@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
@@ -21,25 +22,37 @@ public class MainActivity extends AppCompatActivity {
     private Button botaoFahrenheit;
     private Button buttonCelciusKelvin;
     private Button buttonFahrenheitKelvin;
+    private Button convertButton;
+    private RadioGroup temperatureOptions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textValorConvertidoCelcius = findViewById(R.id.textValorConvertido);
         valorASerConvertido = findViewById(R.id.textValue);
+        convertButton = findViewById(R.id.convert_button);
+        temperatureOptions = findViewById(R.id.temperature_options);
+        convertButton.setOnClickListener(view -> ConverteTemperatura());
 
-        botaoCelcius = findViewById(R.id.buttonConverteCelcius);
-        botaoCelcius.setOnClickListener(view -> ConverteCelcius());
+    }
 
-        botaoFahrenheit = findViewById(R.id.buttonConverteFahrenheit);
-        botaoFahrenheit.setOnClickListener(view -> ConverteFahrenheit());
-
-        buttonCelciusKelvin = findViewById(R.id.buttonConvertCelciusKelvin);
-        buttonCelciusKelvin.setOnClickListener(view -> ConverteKelvin(true));
-
-        buttonFahrenheitKelvin = findViewById(R.id.buttonConverteFahrenheitKelvin);
-        buttonFahrenheitKelvin.setOnClickListener(view -> ConverteKelvin(false));
-
+    public void ConverteTemperatura() {
+        int selectedOptionId = temperatureOptions.getCheckedRadioButtonId();
+        switch (selectedOptionId) {
+            case R.id.celsius_option:
+                ConverteCelcius();
+                break;
+            case R.id.fahrenheit_option:
+                ConverteFahrenheit();
+                break;
+            case R.id.kelvin_Celsius_option:
+                ConverteKelvin(true);
+                break;
+            case R.id.kelvin_Fahrenheit_option:
+                ConverteKelvin(false);
+                break;
+        }
     }
 
     public void  ConverteCelcius() {

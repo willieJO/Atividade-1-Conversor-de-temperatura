@@ -22,60 +22,52 @@
         android:layout_marginBottom="40dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/buttonConverteCelcius"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/temperature_options"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text=" Celsius" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonConverteFahrenheit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text="Fahrenheit" />
+            <RadioButton
+                android:id="@+id/celsius_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Celcius"/>
+
+            <RadioButton
+                android:id="@+id/fahrenheit_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fahrenheit"/>
+
+            <RadioButton
+                android:id="@+id/kelvin_Fahrenheit_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fahrenheit_Kelvin"/>
+
+            <RadioButton
+                android:id="@+id/kelvin_Celsius_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/celcius_Kelvin"/>
+
+        </RadioGroup>
 
 
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/convert_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="50dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonConvertCelciusKelvin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text=" Celcius para Kelvin" />
-
-        <Button
-            android:id="@+id/buttonConverteFahrenheitKelvin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:text="Fahrenheit para Kelvin" />
-
-    </LinearLayout>
+        android:text="@string/converter"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textValorConvertido"
-        android:text="00,00"
+        android:text=""
         android:textAlignment="center"
         android:textSize = "35dp"
         android:textColor="#ffa500"/>
